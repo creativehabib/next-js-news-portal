@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 
   const data = news.data;
 
-  return data.map((item) => ({
+  return data.map((item:any) => ({
     id: item?.encode_titl,
   }));
   
