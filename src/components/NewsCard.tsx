@@ -16,12 +16,12 @@ const NewsCard = ({item}: NewsCardProps) => {
                 />
             </Link>
             <div>
-                <h2 className="text-xl font-semibold my-3">{item.post_title}</h2>
+                <h2 className="text-xl font-semibold my-3">{item.post_title.substring(0,65)}</h2>
                 <Link href={`/news/${item.encode_titl}`}>
                     <Button className="text-blue-500 hover:underline">Read More</Button>
                 </Link>
             </div>
-            
+
         </div>
     );
 };
