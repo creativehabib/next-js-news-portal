@@ -1,4 +1,3 @@
-import { NewsArticle } from "@/types/news";
 import Image from "next/image";
 
 export const revalidate = 60;
@@ -18,7 +17,7 @@ export async function generateStaticParams() {
 }
 
 const NewsDetail = async ({ params }: { params: { id: string } }) => {
-    const post: NewsArticle = await fetch(`https://bn.ebdresults.com/api/post-detail/${params.id}`
+    const post = await fetch(`https://bn.ebdresults.com/api/post-detail/${params.id}`
     ).then((res) => res.json());
     if (!post) {
       return <div>News is Not Found!</div>;
