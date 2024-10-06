@@ -1,4 +1,5 @@
 import Image from "next/image";
+import NewsCard from "@/components/NewsCard";
 
 export const revalidate = 60;
 
@@ -40,6 +41,17 @@ const NewsDetail = async ({ params }: { params: { id: string } }) => {
                   <p>{post.data.news}</p>
                 </div>
             </article>
+            
+            <div className="max-w-7xl mx-auto my-12 px-8">
+            <h2 className="text-2xl font-bold mb-8">Related News</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-between">
+                {
+                    post.data.relatedPost.map((item:any) => (
+                        <NewsCard key={item.news_id} item={item} />
+                    ))
+                }
+            </div>
+        </div>
         </section>
     )
 }
