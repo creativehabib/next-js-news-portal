@@ -1,7 +1,23 @@
-export default function Home() {
+import Banner from "@/components/Banner";
+import {NewsItem} from "@/types/news";
+import NewsCard from "@/components/NewsCard";
+
+export default async function Home() {
+    const response = await fetch(`https://bn.ebdresults.com/api/latest-post`);
+    const news = await response.json();
   return (
     <div>
-      <h1 className="text-2xl font-bold text-yellow-600">Hello Developers</h1>
+      <Banner/>
+        <div className="max-w-7xl mx-auto my-12">
+            <h2 className="text-2xl font-bold mb-8">Latest News</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {
+                    news.data.slice(0,3).map((item: NewsItem) => (
+                        <NewsCard key={item.news_id} item={item} />
+                    ))
+                }
+            </div>
+        </div>
     </div>
   );
 }
