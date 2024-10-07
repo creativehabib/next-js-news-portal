@@ -42,4 +42,20 @@ export interface NewsItem {
     menu_content_id: number;
     categorieslevelone: number[]
   }
+
+  export interface catPostType{
+    default_img: string;
+    category_name: string;
+    category: string;
+    image_title: string;
+    image_alt: string;
+    news_id: number;
+    post_date: string;
+    post_by_id: number;
+    post_by_image: string;
+    post_by_name: string;
+    encode_titl: string;
+    image_thumb: string;
+    image_large: string;
+  }
   

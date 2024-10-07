@@ -1,4 +1,5 @@
 import NewsCard from "@/components/NewsCard";
+import {NewsItem} from "@/types/news";
 
 export async function generateStaticParams() {
     const category = await fetch(`https://bn.ebdresults.com/api/latest-post`
@@ -6,7 +7,7 @@ export async function generateStaticParams() {
 
     const data = category.data;
 
-    return data.map((item:any) => ({
+    return data.map((item:NewsItem) => ({
         slug: item?.category,
     }));
 
@@ -25,8 +26,8 @@ const CategoryPost = async ({ params }: { params: { slug: string } }) => {
                 <h2 className="text-2xl font-bold mb-8">Post Count- ({categories.data.posts_count})</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-between">
                     {
-                        categories.data.posts.map((item:any, index) => (
-                            <NewsCard key={index} item={item}/>
+                        categories.data.posts.map((item) => (
+                            <NewsCard key={item.news_id} item={item}/>
                         ))
                     }
                 </div>
