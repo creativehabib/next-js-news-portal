@@ -1,10 +1,11 @@
-import React from 'react';
+import NewsList from "@/components/news/NewsList";
 
 const NewsPage = () => {
     return (
-        <div>
-            News Page
-        </div>
+        <section className="py-12 px-8">
+            <h2 className="text-xl font-bold leading-tight">Latest News</h2>
+            <NewsList/>
+        </section>
     );
 };
 
