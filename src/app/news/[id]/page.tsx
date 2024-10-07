@@ -1,5 +1,6 @@
 import Image from "next/image";
 import NewsCard from "@/components/NewsCard";
+import {NewsItem} from "@/types/news";
 
 export const revalidate = 60;
 export const dynamicParams = true;
@@ -10,7 +11,7 @@ export async function generateStaticParams() {
 
   const data = news.data;
 
-  return data.map((item:any) => ({
+  return data.map((item:NewsItem) => ({
     id: item?.encode_titl,
   }));
   
@@ -46,7 +47,7 @@ const NewsDetail = async ({ params }: { params: { id: string } }) => {
                 <h2 className="text-2xl font-bold mb-8">Related News</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-between">
                     {
-                        post.data.relatedPost.map((item,index) => (
+                        post.data.relatedPost.map((item:any,index) => (
                             <NewsCard key={index} item={item} />
                         ))
                     }
