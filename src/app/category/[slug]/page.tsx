@@ -6,7 +6,7 @@ export async function generateStaticParams() {
 
     const data = category.data;
 
-    return data.map((item) => ({
+    return data.map((item:any) => ({
         slug: item?.category,
     }));
 
@@ -25,7 +25,7 @@ const CategoryPost = async ({ params }: { params: { slug: string } }) => {
                 <h2 className="text-2xl font-bold mb-8">Post Count- ({categories.data.posts_count})</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-between">
                     {
-                        categories.data.posts.map((item, index) => (
+                        categories.data.posts.map((item:any, index) => (
                             <NewsCard key={index} item={item}/>
                         ))
                     }
