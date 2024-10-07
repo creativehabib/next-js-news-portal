@@ -6,7 +6,7 @@ export async function generateStaticParams() {
 
     const data = category.data;
 
-    return data.map((item:any) => ({
+    return data.map((item) => ({
         slug: item?.category,
     }));
 
