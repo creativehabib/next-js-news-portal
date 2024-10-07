@@ -46,8 +46,8 @@ const NewsDetail = async ({ params }: { params: { id: string } }) => {
                 <h2 className="text-2xl font-bold mb-8">Related News</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-between">
                     {
-                        post.data.relatedPost.map((item:any) => (
-                            <NewsCard key={item.news_id} item={item} />
+                        post.data.relatedPost.map((item,index) => (
+                            <NewsCard key={index} item={item} />
                         ))
                     }
                 </div>

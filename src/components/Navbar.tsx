@@ -38,6 +38,11 @@ const Navbar = () => {
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                   <NavigationMenuItem>
+                    <NavigationMenuLink asChild>
+                      <Link href="/category" className={`${pathname === '/category' ? 'text-red-500 font-semibold' : ''} hover: text-gray-600`}>Category</Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
                     <NavigationMenuTrigger className="dark:bg-gray-900 dark:text-white">Services</NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <NavigationMenuLink asChild>

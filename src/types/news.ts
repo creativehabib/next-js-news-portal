@@ -35,4 +35,11 @@ export interface NewsItem {
     image_thumb: string;
     image_large: string;
   }
+
+  export interface categoryItem{
+    slug: string;
+    menu_lavel: string;
+    menu_content_id: number;
+    categorieslevelone: number[]
+  }
   
