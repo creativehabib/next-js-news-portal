@@ -2,6 +2,7 @@ import React from 'react';
 import {NewsItem} from "@/types/news";
 import Link from "next/link";
 import Image from "next/image";
+import profileImage from  '@/assets/profile-thum.png'
 interface NewsCardProps {
     item: NewsItem
 }
@@ -18,9 +19,9 @@ const NewsCard = ({item}: NewsCardProps) => {
             <div>
                 <div className="flex items-center justify-between">
                     <div>
-                        <Link href={`/author/${item.post_by_id}`} className="flex items-center">
-                            <Image src={item.post_by_image} alt={item.post_by_name} width={25} height={25} className="rounded-full"/>
-                            <span className="ml-2">{item?.post_by_name}</span>
+                        <Link href={`/author/${item.post_by_id ?? 1}`} className="flex items-center">
+                            <Image src={item.post_by_image ?? profileImage} alt={item.post_by_name} width={25} height={25} className="rounded-full"/>
+                            <span className="ml-2">{item?.post_by_name ?? 'Admin'}</span>
                         </Link>
                     </div>
                     <span>{item?.post_date}</span>
